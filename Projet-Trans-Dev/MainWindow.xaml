@@ -1,0 +1,385 @@
+﻿<Window x:Class="Projet_Trans_Dev.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projet_Trans_Dev"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="650" Width="800">
+    <DockPanel>
+
+        <TextBox AcceptsReturn="True" />
+        <StackPanel >
+
+            <TabControl Margin="0,0,0,0" Height="594">
+                <TabItem Header="Ajouter un utilisateur">
+                    <Grid Name ="grigrid" Height="300" Margin="0,0,0.300,0" VerticalAlignment="Top">
+                        <StackPanel>
+
+                            <Label Content="Nom"></Label>                            
+                            <TextBox Name="nomTextBox" Height="20" Width="200" Margin="0,0,550,0"/>
+                            
+                            <Label Content="Prenom"></Label>                            
+                            <TextBox Name="prenomTextBox" Height="20" Width="200" Margin="0,0,550,0" />
+                            
+                            <Label Content="Identifiant"></Label>                            
+                            <TextBox Name="identifiantTextBox" Height="20" Width="200" Margin="0,0,550,0" />
+                            
+                            <Label Content="MotDePasse"></Label>                            
+                            <TextBox Name="MotDePasseTextBox" Height="20" Width="200" Margin="0,0,550,0" />
+
+                            <Label Content="Administrateur"></Label>
+                            <CheckBox Name="AdministrateurCheckBox" Height="20" Width="20" Margin="0,0,700,0" />
+                            <Button x:Name="nomPrenomButton" Content="{Binding concatProperty}"  BorderBrush="#FF545454" Click="nomPrenomButton_Click" BorderThickness="5,5,5,1" Height="35" Margin="0,5,206.333,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31" >
+                                
+                                <Button.Background>
+                                    <RadialGradientBrush>
+                                        <GradientStop Color="LightCyan" Offset="0.279"/>
+
+                                    </RadialGradientBrush>
+                                </Button.Background>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+
+                <!--<TabItem Header="Liste des utilisateurs">
+                    <StackPanel>
+                        <Grid Margin="10">
+                            <DataGrid Name="listeUsers" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="200,0,0,0" BorderBrush="Black" Background="#FFA4A4A4" Width="309" >
+                               
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="id" Binding="{Binding idUserProperty, Mode=OneWay}" />
+                                    <DataGridTextColumn Header="nom" Binding="{Binding nomUserProperty}" />
+                                    <DataGridTextColumn Header="prénom" Binding="{Binding prenomUserProperty, Mode=TwoWay}" />
+                                    <DataGridTextColumn Header="identifiant" Binding="{Binding identifiantUserProperty, Mode=TwoWay}" />
+                                    <DataGridTextColumn Header="motdepasse" Binding="{Binding motdepasseUserProperty, Mode=TwoWay}" />
+                                    <DataGridTextColumn Header="Role" Binding="{Binding administrateurUserProperty, Mode=OneWay}" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                        <Button x:Name="supprimerButton" Content="Supprimer" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Width="200" MouseDoubleClick="supprimerButton_MouseDoubleClick"> 
+                            
+                            <Button.Background>
+                                <RadialGradientBrush>
+                                    <GradientStop Color="#FFF26A66" Offset="0.279"/>
+                                    <GradientStop Color="#FFFFE10A" Offset="0.779"/>
+                                    <GradientStop Color="#FFD3B220" Offset="0.986"/>
+                                </RadialGradientBrush>
+                            </Button.Background>
+                        </Button>
+                    </StackPanel>
+                </TabItem>-->
+                
+                
+                   <!-- Especes -->
+                <TabItem Header="Ajouter une espece">
+                    <Grid Name ="especeGrid" Height="300" Margin="0,0,0.300,0" VerticalAlignment="Top">
+                        <StackPanel>
+
+                            <Label Content="Nom de l'espece"></Label>
+                            <TextBox Name="nomEspeceTextBox" Height="20" Width="200" Margin="0,0,550,0"/>
+
+                            <Button x:Name="nomEspeceButton" Content="{Binding concatProperty}"  BorderBrush="#FF545454" Click="nomEspeceButton_Click" BorderThickness="5,5,5,1" Height="35" Margin="0,5,206.333,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31" >
+
+                                <Button.Background>
+                                    <RadialGradientBrush>
+                                        <GradientStop Color="LightCyan" Offset="0.279"/>
+                                        <GradientStop Color="LightCyan" Offset="0.779"/>
+                                        <GradientStop Color="LightCyan" Offset="0.986"/>
+                                    </RadialGradientBrush>
+                                </Button.Background>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+
+                <!--<TabItem Header="Liste des utilisateurs">
+                    <StackPanel>
+                        <Grid Margin="10">
+                            <DataGrid Name="listeEspeces" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="200,0,0,0" BorderBrush="Black" Background="#FFA4A4A4" Width="309" >
+                               
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="id" Binding="{Binding idEspeceProperty, Mode=OneWay}" />
+                                    <DataGridTextColumn Header="nom" Binding="{Binding nomEspeceProperty}" />
+                                   
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                        <Button x:Name="supprimerEspeceButton" Content="Supprimer" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Width="200" MouseDoubleClick="supprimerEspeceButton_MouseDoubleClick">
+
+                            <Button.Background>
+                                <RadialGradientBrush>
+                                    <GradientStop Color="#FFF26A66" Offset="0.279"/>
+                                    <GradientStop Color="#FFFFE10A" Offset="0.779"/>
+                                    <GradientStop Color="#FFD3B220" Offset="0.986"/>
+                                </RadialGradientBrush>
+                            </Button.Background>
+                        </Button>
+                    </StackPanel>
+                </TabItem>-->
+                
+                
+                <!-- Departement -->
+                <TabItem Header="Ajouter un departement">
+                    <Grid Name ="depGrid" Height="300" Margin="0,0,0.300,0" VerticalAlignment="Top">
+                        <StackPanel>
+
+                            <Label Content="Nom du département"></Label>
+                            <TextBox Name="nomDepartementTextBox" Height="20" Width="200" Margin="0,0,550,0"/>
+
+                            <Label Content="Code postal du département"></Label>
+                            <TextBox Name="codepostalDepartementTextBox" Height="20" Width="200" Margin="0,0,550,0"/>
+
+                            <Button x:Name="nomDepartementButton" Content="{Binding concatProperty}"  BorderBrush="#FF545454" Click="nomDepartementButton_Click" BorderThickness="5,5,5,1" Height="35" Margin="0,5,206.333,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31" >
+
+                                <Button.Background>
+                                    <RadialGradientBrush>
+                                        <GradientStop Color="LightCyan" Offset="0.279"/>
+                                        <GradientStop Color="LightCyan" Offset="0.779"/>
+                                        <GradientStop Color="LightCyan" Offset="0.986"/>
+                                    </RadialGradientBrush>
+                                </Button.Background>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+
+                <!--<TabItem Header="Liste des departements">
+                    <StackPanel>
+                        <Grid Margin="10">
+                            <DataGrid Name="listeDepartements" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" SelectionChanged="listeDepartement_SelectionChanged" Margin="200,0,0,0" BorderBrush="Black" Background="#FFA4A4A4" Width="309" >
+                                
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="id" Binding="{Binding idDepartementProperty}" />
+                                    <DataGridTextColumn Header="nom" Binding="{Binding nomDepartementProperty}" />
+                                    <DataGridTextColumn Header="Codepostal" Binding="{Binding codepostalDepartementProperty}" />
+
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                        <Button x:Name="supprimerDepartementButton" Content="Supprimer" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Width="200" MouseDoubleClick="supprimerDepartementButton_MouseDoubleClick">
+
+                            <Button.Background>
+                                <RadialGradientBrush>
+                                    <GradientStop Color="#FFF26A66" Offset="0.279"/>
+                                    <GradientStop Color="#FFFFE10A" Offset="0.779"/>
+                                    <GradientStop Color="#FFD3B220" Offset="0.986"/>
+                                </RadialGradientBrush>
+                            </Button.Background>
+                        </Button>
+                    </StackPanel>
+                </TabItem>-->
+
+                
+                <!-- Commune -->
+                <TabItem Header="Ajouter une commune">
+                    <Grid Name ="comGrid" Height="300" Margin="0,0,0.300,0" VerticalAlignment="Top">
+                        <StackPanel>
+
+                            <Label Content="Nom du département"></Label>
+                            <TextBox Name="nomCommuneTextBox" Height="20" Width="200" Margin="0,0,550,0"/>
+
+                            <ComboBox Name="WomboCombo" DisplayMemberPath="nomDepartementProperty" ItemsSource="{Binding}" SelectedItem="{Binding idDepartementProperty}"></ComboBox>
+
+                            <Button x:Name="nomCommuneButton" Content="{Binding concatProperty}"  BorderBrush="#FF545454" Click="nomCommuneButton_MouseDoubleClick" BorderThickness="5,5,5,1" Height="35" Margin="0,5,206.333,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31" >
+
+                                <Button.Background>
+                                    <RadialGradientBrush>
+                                        <GradientStop Color="LightCyan" Offset="0.279"/>
+                                    </RadialGradientBrush>
+                                </Button.Background>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+
+                <!--<TabItem Header="Liste des communes">
+                    <StackPanel>
+                        <Grid Margin="10">
+                            <DataGrid Name="listeCommunes" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left"  Margin="200,0,0,0" BorderBrush="Black" Background="#FFA4A4A4" Width="309" >
+
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="id" Binding="{Binding idCommuneProperty}" />
+                                    <DataGridTextColumn Header="nom" Binding="{Binding nomCommuneProperty}" />
+                                    <DataGridTextColumn Header="departement" Binding="{Binding nomDepartementCommuneProperty}" />
+
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                        <Button x:Name="supprimerCommuneButton" Content="Supprimer" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Width="200" MouseDoubleClick="supprimerCommuneButton_MouseDoubleClick">
+
+                            <Button.Background>
+                                <RadialGradientBrush>
+                                    <GradientStop Color="#FFF26A66" Offset="0.279"/>
+                                    <GradientStop Color="#FFFFE10A" Offset="0.779"/>
+                                    <GradientStop Color="#FFD3B220" Offset="0.986"/>
+                                </RadialGradientBrush>
+                            </Button.Background>
+                        </Button>
+                    </StackPanel>
+                </TabItem>-->
+
+
+                <!-- Plage -->
+                <TabItem Header="Ajouter une plage">
+                    <Grid Name ="plaGrid" Height="300" Margin="0,0,0.300,0" VerticalAlignment="Top">
+                        <StackPanel>
+
+                            <Label Content="Nom de la plage"></Label>
+                            <TextBox Name="nomPlageTextBox" Height="20" Width="200" Margin="0,0,550,0"/>
+                            <Label Content="Superficie de la plage"></Label>
+                            <TextBox Name="superficiePlageTextBox" Height="20" Width="200" Margin="0,0,550,0"/>
+
+                            <ComboBox Name="ComboBox" DisplayMemberPath="nomCommuneProperty" ItemsSource="{Binding}" SelectedItem="{Binding idCommuneProperty}"></ComboBox>
+
+                            <Button x:Name="nomPlageButton" Content="{Binding concatProperty}"  BorderBrush="#FF545454" Click="nomPlageButton_MouseDoubleClick" BorderThickness="5,5,5,1" Height="35" Margin="0,5,206.333,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31" >
+
+                                <Button.Background>
+                                    <RadialGradientBrush>
+                                        <GradientStop Color="LightCyan" Offset="0.279"/>
+                                    </RadialGradientBrush>
+                                </Button.Background>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+
+                <TabItem Header="Liste des plages">
+                    <StackPanel>
+                        <Grid Margin="10">
+                            <DataGrid Name="listePlages" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left"  Margin="200,0,0,0" BorderBrush="Black" Background="#FFA4A4A4" Width="309" >
+
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="id" Binding="{Binding idPlageProperty, Mode=OneWay}" />
+                                    <DataGridTextColumn Header="nom" Binding="{Binding nomPlageProperty, Mode=TwoWay}" />
+                                    <DataGridTextColumn Header="Superficie" Binding="{Binding superficiePlageProperty, Mode=TwoWay}" />
+                                    <DataGridTextColumn Header="Commune"  Binding="{Binding CommunePlageProperty, Mode=OneWay}" />
+
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                        <Button x:Name="supprimerPlageButton" Content="Supprimer" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Width="200" Click="supprimerPlageButton_Click">
+
+                            <Button.Background>
+                                <RadialGradientBrush>
+                                    <GradientStop Color="#FFF26A66" Offset="0.279"/>
+                                    <GradientStop Color="#FFFFE10A" Offset="0.779"/>
+                                    <GradientStop Color="#FFD3B220" Offset="0.986"/>
+                                </RadialGradientBrush>
+                            </Button.Background>
+                        </Button>
+                    </StackPanel>
+                </TabItem>
+
+
+
+
+                <!-- Etude -->
+                <TabItem Header="Ajouter une etude">
+                    <Grid Name ="etuGrid" Height="300" Margin="0,0,0.300,0" VerticalAlignment="Top">
+                        <StackPanel>
+
+                            <Label Content="Nom de l'etude"></Label>
+                            <TextBox Name="titreEtudeTextBox" Height="20" Width="200" Margin="0,0,550,0"/>
+
+                            <Label Content="Date etude"></Label>
+                            <TextBox Name="dateEtudeTextBox" Height="20" Width="200" Margin="0,0,550,0"/>
+
+                            <Label Content="Nombre personne"></Label>
+                            <TextBox Name="nombrePersonneEtudeTextBox" Height="20" Width="200" Margin="0,0,550,0"/>
+
+
+                            <ComboBox Name="ComboBoxEtude" DisplayMemberPath="identifiantUserProperty" ItemsSource="{Binding}" SelectedItem="{Binding idUserProperty}"></ComboBox>
+
+                            <Button x:Name="titreEtudeButton" Content="{Binding concatProperty}"  BorderBrush="#FF545454" Click="titreEtudeButton_MouseDoubleClick" BorderThickness="5,5,5,1" Height="35" Margin="0,5,206.333,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31" >
+
+                                <Button.Background>
+                                    <RadialGradientBrush>
+                                        <GradientStop Color="LightCyan" Offset="0.279"/>
+                                    </RadialGradientBrush>
+                                </Button.Background>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+
+               <!--
+                <TabItem Header="Liste des etudes">
+                    <StackPanel>
+                        <Grid Margin="10">
+                            <DataGrid Name="listeEtudes" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left"  Margin="200,0,0,0" BorderBrush="Black" Background="#FFA4A4A4" Width="309" >
+
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="id" Binding="{Binding idEtudeProperty}" />
+                                    <DataGridTextColumn Header="titre" Binding="{Binding titreEtudeProperty}" />
+                                    <DataGridTextColumn Header="date" Binding="{Binding dateEtudeProperty}" />
+                                    <DataGridTextColumn Header="Nombre Personne" Binding="{Binding nombrePersonneEtudeProperty}" />
+                                    <DataGridTextColumn Header="Plage"  Binding="{Binding plageEtudeProperty}" />
+
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                        <Button x:Name="supprimerEtudeButton" Content="Supprimer" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Width="200" MouseDoubleClick="supprimerPlageButton_MouseDoubleClick">
+
+                            <Button.Background>
+                                <RadialGradientBrush>
+                                    <GradientStop Color="#55555555" Offset="0.279"/>
+                                    <GradientStop Color="#FFFFFFFF" Offset="0.779"/>
+
+                                </RadialGradientBrush>
+                            </Button.Background>
+                        </Button>
+                    </StackPanel>
+                </TabItem>-->
+
+
+                <!-- Zone -->
+                <TabItem Header="Ajouter une Zone">
+                    <Grid Name ="ZoneGrid" Height="500" Margin="0,0,0.300,0" VerticalAlignment="Top">
+                        <StackPanel>
+
+                            <Label Content="Quelle etude ?"></Label>
+                            <ComboBox Name="ComboBoxEt" DisplayMemberPath="titreEtudeProperty" ItemsSource="{Binding}" SelectedItem="{Binding idEtudeProperty}"></ComboBox>
+
+                            <Label Content="Quelle plage ?"></Label>
+                            <ComboBox Name="ComboBoxPl" DisplayMemberPath="nomPlageProperty" ItemsSource="{Binding}" SelectedItem="{Binding idPlageProperty}"></ComboBox>
+
+                            <Label Content="Date"></Label>
+                            <TextBox Name="DateTextBox" Height="20" Width="200" Margin="0,0,550,0"/>
+
+                            <Label Content="Angle 1 :"></Label>
+                            <TextBox Name="angle1TextBox" Height="20" Width="200" Margin="0,0,550,0"/>
+
+                            <Label Content="Angle 2 :"></Label>
+                            <TextBox Name="angle2TextBox" Height="20" Width="200" Margin="0,0,550,0"/>
+
+                            <Label Content="Angle 3 :"></Label>
+                            <TextBox Name="angle3TextBox" Height="20" Width="200" Margin="0,0,550,0"/>
+
+                            <Label Content="Angle 4 :"></Label>
+                            <TextBox Name="angle4TextBox" Height="20" Width="200" Margin="0,0,550,0"/>
+
+                            <Label Content="Superficie"></Label>
+                            <TextBox Name="SuperficieEtudieeTextBox" Height="20" Width="200" Margin="0,0,550,0"/>
+
+
+                            
+
+                            <Button x:Name="titreZoneButton" Content="{Binding concatProperty}"  BorderBrush="#FF545454" Click="titreZoneButton_Click" BorderThickness="5,5,5,1" Height="35" Margin="0,5,206.333,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31" >
+
+                                <Button.Background>
+                                    <RadialGradientBrush>
+                                        <GradientStop Color="LightCyan" Offset="0.279"/>
+                                    </RadialGradientBrush>
+                                </Button.Background>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+
+
+            </TabControl>
+        </StackPanel>
+    </DockPanel>
+</Window>
